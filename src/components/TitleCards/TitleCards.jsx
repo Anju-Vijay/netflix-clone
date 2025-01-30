@@ -3,7 +3,7 @@ import './TitleCards.css'
 
 function TitleCards() {
   return (
-    <div>TitleCards</div>
+    <div className="title-cards">TitleCards</div>
   )
 }
 
