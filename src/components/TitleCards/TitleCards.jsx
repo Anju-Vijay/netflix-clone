@@ -1,16 +1,30 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './TitleCards.css'
-import cards_data from '../../assets/cards/Cards_data'
+import {image_URL,base_URL} from '../../constants/constants'
 
-function TitleCards({title}) {
-   const cardRef=useRef();
+
+function TitleCards({title, url}) {
+   const [movies,setMovies]=useState([])
+    const cardRef=useRef();
 
     const  handleWheel=(event)=>{
         event.preventDefault();
         cardRef.current.scrollLeft += event.deltaY;
     }
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDExZjg3OThkMjU5ZWM3MzRjYzRkOGFiMjYwYzllYiIsIm5iZiI6MTczOTE3MTMxNC40NTUwMDAyLCJzdWIiOiI2N2E5YTVmMjA4NmY1NDgzNzYwZjc0YTYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.aHryKXzWWleZaZ9o2gOqs-HT9fmsuaR0dVssIUr6aCw'
+        }
+      };
 
     useEffect(()=>{
+              
+        fetch(`${base_URL}/${url}`, options)
+        .then(res => res.json())
+        .then(res=>setMovies(res.results))
+        .catch(err => console.error(err));
         cardRef.current.addEventListener('wheel',handleWheel)
     },[])
 
@@ -19,14 +33,14 @@ function TitleCards({title}) {
     <div className="title-cards">
         <h2>{title? title:'Popular on Netflix'} </h2>
         <div className='card-list' ref={cardRef}>
-            {cards_data.map ((card, index)=>{
+            {movies ? movies.map ((movie, index)=>{
                 return(
                     <div className='card' key={index}>
-                        <img src={card.image} alt="" />
-                        <p>{card.name}</p>
+                        <img src={`${image_URL}`+movie.backdrop_path} alt="" />
+                        <p>{movie.original_title}</p>
                     </div>
                 )
-            })}
+            }):""}
         </div> 
     </div>
   )

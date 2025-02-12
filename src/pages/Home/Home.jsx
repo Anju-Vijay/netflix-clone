@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Home.css'
 import Navbar from '../../components/Navbar/Navbar'
 import Hero_banner from '../../assets/hero_banner.jpg'
@@ -8,7 +8,10 @@ import Info_icon from '../../assets/info_icon.png'
 import TitleCards from '../../components/TitleCards/TitleCards'
 import Footer from '../../components/Footer/Footer'
 
+
+
 function Home() {
+
   return (
     <div className='home'>
         <Navbar/>
@@ -21,14 +24,14 @@ function Home() {
                     <button className='btn'> <img src={Play_icon} alt="info icon" />Play</button>
                     <button className='btn btn-dark'><img src={Info_icon} alt="play icon" />  More info</button>
                 </div>
-                <TitleCards/> 
+                <TitleCards url='trending/movie/day?language=en-US'/> 
             </div>
         </div>
         <div className='more-cards'>
-            <TitleCards title='Blockbuster Movies'/> 
-            <TitleCards title='Only On Netflix'/> 
-            <TitleCards title='Upcoming'/> 
-            <TitleCards title='Top Pics For You'/> 
+            <TitleCards title='Only On Netflix' url='movie/now_playing?language=en-US&page=1'/> 
+            <TitleCards title='Upcoming' url='movie/upcoming?language=en-US&page=1'/> 
+            <TitleCards title='Top Pics For You' url='movie/top_rated?language=en-US&page=1'/> 
+            <TitleCards title='Blockbuster Movies' url='movie/popular?language=en-US&page=1'/> 
         </div>
         <Footer/>
 
