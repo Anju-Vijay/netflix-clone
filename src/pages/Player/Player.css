@@ -1,0 +1,33 @@
+.player {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.8);
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;  
+   
+}
+.player-content{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+
+}
+.player-content img{
+    width: 40px;
+    cursor: pointer;
+}
+.player-content iframe{
+    margin: auto;
+}    
+.video-details{
+    display: flex;
+    justify-content: space-between;
+}
