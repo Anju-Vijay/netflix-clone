@@ -19,7 +19,7 @@ function Home() {
             <img src={Hero_banner} alt="" className='banner-img' />
             <div className='hero-caption'>
                 <img src={Hero_title} alt="" className='caption-img'/>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis officia repellat, unde quae cum rem aliquid natus possimus iusto, pariatur nobis alias illo debitis minus porro suscipit ullam, vitae ducimus!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis officia repellat, unde quae cum rem aliquid natus possimus iusto</p>
                 <div className='hero-btn'>
                     <button className='btn'> <img src={Play_icon} alt="info icon" />Play</button>
                     <button className='btn btn-dark'><img src={Info_icon} alt="play icon" />  More info</button>

@@ -29,3 +29,14 @@
     text-decoration: none;
     color: #fff;
 }
+
+@media (max-width: 768px) {
+    .card img {
+        max-width: 200px;  /* Adjust size on smaller screens */
+    }
+
+    .card p {
+        bottom: 5px;
+        padding: 0 5px;  /* Adjust padding on smaller screens */
+    }
+}
